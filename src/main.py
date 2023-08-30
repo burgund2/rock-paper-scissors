@@ -9,15 +9,15 @@ def print_score(score: dict[str, int], counter: int, lang: int):
     points = [val for val in score.values()]
 
     if lang == 1:
-        print(f'      --- Wygrywa {winner[0]} ---')
-        print(f'    Wykorzystano {counter} prób, by zdobyć {points[0]} punktów')
+        print(f'\n      --- Wygrywa {winner[0]} ---')
+        print(f'   Wykorzystano {counter} prób, by zdobyć {points[0]} punkty(ów)')
 
     else:
-        print(f'      --- The Winner is {winner[0]} ---')
+        print(f'\n      --- The Winner is {winner[0]} ---')
         print(f'    You needed {counter} tries to win {points[0]} points')
 
 
-if __name__ == '__main__':
+def main():
     while True:
         print()
         print('Main Menu:')
@@ -41,3 +41,7 @@ if __name__ == '__main__':
         else:
             print('Nieprawidłowa wartość / Wrong value')
             continue
+
+
+if __name__ == '__main__':
+    main()
