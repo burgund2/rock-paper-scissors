@@ -18,32 +18,42 @@ def polish_game(max_points):
         paper_over_rock = False
         rock_over_scissors = False
         scissors_over_paper = False
-        if gamer1_choice > 3 or gamer2_choice > 3 or gamer1_choice < 1 or gamer2_choice < 1:
+        if gamer1_choice > 3 or gamer2_choice > 3 \
+                or gamer1_choice < 1 or gamer2_choice < 1:
             print('\nWprowadź poprawne wartości 1, 2 lub 3 !!')
-        elif gamer1_choice == 1 and gamer2_choice == 2:
+
+        elif gamer1_choice == 1 and gamer2_choice == 2 \
+                or gamer1_choice == 2 and gamer2_choice == 1:
             paper_over_rock = True
-            point1 += 1
-        elif gamer1_choice == 1 and gamer2_choice == 3:
-            scissors_over_paper = True
-            point2 += 1
-        elif gamer1_choice == 2 and gamer2_choice == 1:
-            paper_over_rock = True
-            point2 += 1
-        elif gamer1_choice == 2 and gamer2_choice == 3:
+            if gamer1_choice == 1:
+                point1 += 1
+            else:
+                point2 += 1
+
+        elif gamer1_choice == 2 and gamer2_choice == 3 \
+                or gamer1_choice == 3 and gamer2_choice == 2:
             rock_over_scissors = True
-            point1 += 1
-        elif gamer1_choice == 3 and gamer2_choice == 1:
+            if gamer1_choice == 2:
+                point1 += 1
+            else:
+                point2 += 1
+
+        elif gamer1_choice == 3 and gamer2_choice == 1 \
+                or gamer1_choice == 1 and gamer2_choice == 3:
             scissors_over_paper = True
-            point1 += 1
-        elif gamer1_choice == 3 and gamer2_choice == 2:
-            rock_over_scissors = True
-            point2 += 1
-        elif gamer1_choice == 1 and gamer2_choice == 1:
-            print('\nNie przyznano punktów: Papier = Papier')
-        elif gamer1_choice == 2 and gamer2_choice == 2:
-            print('\nNie przyznano punktów: Kamień = Kamień')
+            if gamer1_choice == 3:
+                point1 += 1
+            else:
+                point2 += 1
+
         else:
-            print('\nNie przyznano punktów: Nożyce = Nożyce')
+            if gamer1_choice == 1:
+                choice = 'Papier'
+            elif gamer1_choice == 2:
+                choice = 'Kamień'
+            else:
+                choice = 'Nożyce'
+            print(f'\nNie przyznano punktów: {choice} = {choice}')
 
         if paper_over_rock:
             print('\n- Papier ponad Kamień -')

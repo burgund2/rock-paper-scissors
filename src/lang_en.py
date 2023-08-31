@@ -18,32 +18,42 @@ def english_game(max_points):
         paper_over_rock = False
         rock_over_scissors = False
         scissors_over_paper = False
-        if gamer1_choice > 3 or gamer2_choice > 3 or gamer1_choice < 1 or gamer2_choice < 1:
+        if gamer1_choice > 3 or gamer2_choice > 3 \
+                or gamer1_choice < 1 or gamer2_choice < 1:
             print('\nEnter valid value 1, 2 or 3 !!')
-        elif gamer1_choice == 2 and gamer2_choice == 1:
+
+        elif gamer1_choice == 1 and gamer2_choice == 2 \
+                or gamer1_choice == 2 and gamer2_choice == 1:
             paper_over_rock = True
-            point1 += 1
-        elif gamer1_choice == 2 and gamer2_choice == 3:
-            scissors_over_paper = True
-            point2 += 1
-        elif gamer1_choice == 1 and gamer2_choice == 2:
-            paper_over_rock = True
-            point2 += 1
-        elif gamer1_choice == 1 and gamer2_choice == 3:
+            if gamer1_choice == 1:
+                point1 += 1
+            else:
+                point2 += 1
+
+        elif gamer1_choice == 2 and gamer2_choice == 3 \
+                or gamer1_choice == 3 and gamer2_choice == 2:
             rock_over_scissors = True
-            point1 += 1
-        elif gamer1_choice == 3 and gamer2_choice == 2:
+            if gamer1_choice == 2:
+                point1 += 1
+            else:
+                point2 += 1
+
+        elif gamer1_choice == 3 and gamer2_choice == 1 \
+                or gamer1_choice == 1 and gamer2_choice == 3:
             scissors_over_paper = True
-            point1 += 1
-        elif gamer1_choice == 3 and gamer2_choice == 1:
-            rock_over_scissors = True
-            point2 += 1
-        elif gamer1_choice == 1 and gamer2_choice == 1:
-            print('\nNo points awarded: Paper = Paper')
-        elif gamer1_choice == 2 and gamer2_choice == 2:
-            print('\nNo points awarded: Rock = Rock')
+            if gamer1_choice == 3:
+                point1 += 1
+            else:
+                point2 += 1
+
         else:
-            print('\nNo points awarded: Scissors = Scissors')
+            if gamer1_choice == 1:
+                choice = 'Rock'
+            elif gamer1_choice == 2:
+                choice = 'Paper'
+            else:
+                choice = 'Scissors'
+            print(f'\nNo points awarded: {choice} = {choice}')
 
         if paper_over_rock:
             print('\n- Paper over Rock -')
