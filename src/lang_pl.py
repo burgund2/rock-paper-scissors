@@ -55,14 +55,8 @@ def polish_game(max_points):
                 choice = 'Nożyce'
             print(f'\nNie przyznano punktów: {choice} = {choice}')
 
-        if paper_over_rock:
-            print('\n- Papier ponad Kamień -')
-        elif rock_over_scissors:
-            print('\n- Kamień ponad Nożyce -')
-        elif scissors_over_paper:
-            print('\n- Nożyce ponad Papier -')
-
-        print(f'Ranking: Gracz 1 - {point1} punkt(ów), Gracz 2 - {point2} punkt(ów)')
+        print_ranking(point1, point2, paper_over_rock,
+                      rock_over_scissors, scissors_over_paper)
         counter += 1
 
         score = {}
@@ -74,3 +68,15 @@ def polish_game(max_points):
             break
 
     return score, counter
+
+
+def print_ranking(point1, point2, paper_over_rock=False,
+                  rock_over_scissors=False, scissors_over_paper=False):
+
+    if paper_over_rock:
+        print('\n- Papier ponad Kamień -')
+    elif rock_over_scissors:
+        print('\n- Kamień ponad Nożyce -')
+    elif scissors_over_paper:
+        print('\n- Nożyce ponad Papier -')
+    print(f'Ranking: Gracz 1 - {point1} punkt(ów), Gracz 2 - {point2} punkt(ów)')  # noqa: E501

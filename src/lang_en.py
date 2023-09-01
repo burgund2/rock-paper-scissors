@@ -55,14 +55,8 @@ def english_game(max_points):
                 choice = 'Scissors'
             print(f'\nNo points awarded: {choice} = {choice}')
 
-        if paper_over_rock:
-            print('\n- Paper over Rock -')
-        elif rock_over_scissors:
-            print('\n- Rock over Scissors -')
-        elif scissors_over_paper:
-            print('\n- Scissors over Paper -')
-
-        print(f'Ranking: Gamer 1 - {point1} point(s), Gamer 2 - {point2} point(s))')
+        print_ranking(point1, point2, paper_over_rock,
+                      rock_over_scissors, scissors_over_paper)
         counter += 1
 
         score = {}
@@ -74,3 +68,15 @@ def english_game(max_points):
             break
 
     return score, counter
+
+
+def print_ranking(point1, point2, paper_over_rock=False,
+                  rock_over_scissors=False, scissors_over_paper=False):
+
+    if paper_over_rock:
+        print('\n- Paper over Rock -')
+    elif rock_over_scissors:
+        print('\n- Rock over Scissors -')
+    elif scissors_over_paper:
+        print('\n- Scissors over Paper -')
+    print(f'Ranking: Gamer 1 - {point1} point(s), Gamer 2 - {point2} point(s)')

@@ -10,7 +10,7 @@ def print_score(score: dict[str, int], counter: int, lang: int):
 
     if lang == 1:
         print(f'\n      --- Wygrywa {winner[0]} ---')
-        print(f'   Wykorzystano {counter} prób, by zdobyć {points[0]} punkty(ów)')
+        print(f'Wykorzystano {counter} prób, by zdobyć {points[0]} punkty(ów)')
 
     else:
         print(f'\n      --- The Winner is {winner[0]} ---')
