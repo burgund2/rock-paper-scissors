@@ -25,22 +25,27 @@ def main():
         print('2. English')
         print('0. Koniec / Exit')
         print()
-        lang = int(input('Podaj język gry / Enter game language: '))
+        try:
+            lang = int(input('Podaj język gry / Enter game language: '))
 
-        if lang == 1:
-            max_points = int(input('Do ilu wygranych punktów gramy?: '))
-            score, counter = polish_game(max_points)
-            print_score(score, counter, lang)
-        elif lang == 2:
-            max_points = int(input('Until how many points are won?: '))
-            score, counter = english_game(max_points)
-            print_score(score, counter, lang)
-        elif lang == 0:
-            print('Bye, bye ;-) ')
-            break
-        else:
-            print('Nieprawidłowa wartość / Wrong value')
-            continue
+            match lang:
+                case 1:
+                    max_points = int(input('Do ilu wygranych punktów gramy?: '))  # noqaE371
+                    score, counter = polish_game(max_points)
+                    print_score(score, counter, lang)
+                case 2:
+                    max_points = int(input('Until how many points are won?: '))
+                    score, counter = english_game(max_points)
+                    print_score(score, counter, lang)
+                case 0:
+                    print('Bye, bye ;-) ')
+                    break
+                case _:
+                    print('Nieprawidłowa wartość / Wrong value')
+                    continue
+
+        except ValueError:
+            print('Wartość musi być cyfrą / Value must be a digit !!')
 
 
 if __name__ == '__main__':
