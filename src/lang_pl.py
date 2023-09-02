@@ -10,6 +10,10 @@ def polish_game(max_points):
         rock_over_scissors = False
         scissors_over_paper = False
 
+        paper_over_rock = False
+        rock_over_scissors = False
+        scissors_over_paper = False
+
         print()
         print("Menu:")
         print('1. Papier')
