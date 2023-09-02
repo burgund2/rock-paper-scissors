@@ -42,7 +42,6 @@ def main():
                     break
                 case _:
                     print('Nieprawidłowa wartość / Wrong value')
-                    continue
 
         except ValueError:
             print('Wartość musi być cyfrą / Value must be a digit !!')
